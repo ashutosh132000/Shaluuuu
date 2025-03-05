@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Celebration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .slide {
+            display: none;
+            width: 100vw;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-size: 2rem;
+            color: #fff;
+            font-weight: bold;
+            padding: 20px;
+        }
+        .slide:nth-child(1) { background: linear-gradient(to right, #ff7e5f, #feb47b); display: flex; }
+        .slide:nth-child(2) { background: linear-gradient(to right, #6a11cb, #2575fc); }
+        .slide:nth-child(3) { background: linear-gradient(to right, #ff512f, #dd2476); }
+        .slide:nth-child(4) { background: linear-gradient(to right, #1f4037, #99f2c8); }
+        .slide:nth-child(5) { background: linear-gradient(to right, #8360c3, #2ebf91); }
+        .slide:nth-child(6) { background: linear-gradient(to right, #ff4b1f, #1fddff); }
+        .slide:nth-child(7) { background: linear-gradient(to right, #ff9a9e, #fad0c4); }
+        .slide:nth-child(8) { background: linear-gradient(to right, #a18cd1, #fbc2eb); }
+        .slide:nth-child(9) { background: linear-gradient(to right, #30cfd0, #330867); }
+        .slide:nth-child(10) { background: linear-gradient(to right, #fc466b, #3f5efb); }
+        .small-text {
+            font-size: 1.2rem;
+            font-weight: normal;
+            margin-top: 10px;
+        }
+        .navigation {
+            position: fixed;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+        }
+        .nav-btn {
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 5px;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 65, 108, 0.5);
+        }
+        .nav-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(255, 65, 108, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">A SPECIAL DAY FOR A SPECIAL SOUL<br><span class="small-text">Today is not just another day—it is a celebration of the wonderful person you are!...</span></div>
+    <div class="slide">A YEAR OF NEW BEGINNINGS<br><span class="small-text">Birthdays mark the start of a new chapter...</span></div>
+    <div class="slide">CHERISHING THE BEAUTIFUL MOMENTS<br><span class="small-text">Life is a collection of beautiful moments...</span></div>
+    <div class="slide">THE GIFT OF FRIENDSHIP AND LOVE<br><span class="small-text">You are surrounded by people who love and appreciate you...</span></div>
+    <div class="slide">REFLECTING ON YOUR JOURNEY<br><span class="small-text">Every birthday is an opportunity to look back...</span></div>
+    <div class="slide">DREAM BIG AND SHINE BRIGHT<br><span class="small-text">The future is full of possibilities...</span></div>
+    <div class="slide">A HEART FULL OF GRATITUDE<br><span class="small-text">On this special day, take a moment to be grateful...</span></div>
+    <div class="slide">A DAY TO CELEBRATE YOU<br><span class="small-text">Birthdays are a time to be celebrated...</span></div>
+    <div class="slide">WISHING YOU ENDLESS HAPPINESS<br><span class="small-text">As you step into this new year of life...</span></div>
+    <div class="slide">HAPPY BIRTHDAY, SHALU!<br><span class="small-text">On this wonderful day, I want you to know how truly special you are...</span></div>
+    
+    <div class="navigation">
+        <button class="nav-btn" onclick="prevSlide()">Previous</button>
+        <button class="nav-btn" onclick="nextSlide()">Next</button>
+    </div>
+    
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll(".slide");
+        
+        function showSlide(index) {
+            slides.forEach(slide => slide.style.display = "none");
+            slides[index].style.display = "flex";
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+        
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+    </script>
+</body>
+</html>
