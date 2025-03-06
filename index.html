@@ -3,86 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Birthday Celebration</title>
+    <title>Happy Birthday Shalu</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
         body {
+            margin: 0;
+            overflow: hidden;
+            background: black;
+            color: white;
             font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        .slide-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
             text-align: center;
         }
         .slide {
-            display: none;
-            width: 100vw;
-            height: 100vh;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
-            font-size: 2rem;
-            color: #fff;
-            font-weight: bold;
-            padding: 20px;
+            opacity: 0;
+            transition: opacity 1s;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
-        .slide:nth-child(1) { background: linear-gradient(to right, #ff7e5f, #feb47b); display: flex; }
-        .slide:nth-child(2) { background: linear-gradient(to right, #6a11cb, #2575fc); }
-        .slide:nth-child(3) { background: linear-gradient(to right, #ff512f, #dd2476); }
-        .slide:nth-child(4) { background: linear-gradient(to right, #1f4037, #99f2c8); }
-        .slide:nth-child(5) { background: linear-gradient(to right, #8360c3, #2ebf91); }
-        .slide:nth-child(6) { background: linear-gradient(to right, #ff4b1f, #1fddff); }
-        .slide:nth-child(7) { background: linear-gradient(to right, #ff9a9e, #fad0c4); }
-        .slide:nth-child(8) { background: linear-gradient(to right, #a18cd1, #fbc2eb); }
-        .slide:nth-child(9) { background: linear-gradient(to right, #30cfd0, #330867); }
-        .slide:nth-child(10) { background: linear-gradient(to right, #fc466b, #3f5efb); }
-        .small-text {
-            font-size: 1.2rem;
-            font-weight: normal;
-            margin-top: 10px;
+        .slide h1 {
+            font-size: 36px;
+            margin: 10px 0;
         }
-        .navigation {
-            position: fixed;
+        .slide p {
+            font-size: 20px;
+            margin: 5px 0;
+        }
+        .image-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .image-container img {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 2px solid white;
+        }
+        .active {
+            opacity: 1;
+        }
+        .buttons {
+            position: absolute;
             bottom: 20px;
-            width: 100%;
-            text-align: center;
+            display: flex;
+            gap: 10px;
         }
-        .nav-btn {
-            background: linear-gradient(to right, #ff416c, #ff4b2b);
-            color: white;
-            padding: 12px 24px;
+        .button {
+            background-color: white;
+            color: black;
             border: none;
-            border-radius: 30px;
+            padding: 10px 20px;
+            font-size: 18px;
             cursor: pointer;
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin: 5px;
-            transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(255, 65, 108, 0.5);
-        }
-        .nav-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(255, 65, 108, 0.7);
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
-    <div class="slide">A SPECIAL DAY FOR A SPECIAL SOUL<br><span class="small-text">Today is not just another day—it is a celebration of the wonderful person you are!...</span></div>
-    <div class="slide">A YEAR OF NEW BEGINNINGS<br><span class="small-text">Birthdays mark the start of a new chapter...</span></div>
-    <div class="slide">CHERISHING THE BEAUTIFUL MOMENTS<br><span class="small-text">Life is a collection of beautiful moments...</span></div>
-    <div class="slide">THE GIFT OF FRIENDSHIP AND LOVE<br><span class="small-text">You are surrounded by people who love and appreciate you...</span></div>
-    <div class="slide">REFLECTING ON YOUR JOURNEY<br><span class="small-text">Every birthday is an opportunity to look back...</span></div>
-    <div class="slide">DREAM BIG AND SHINE BRIGHT<br><span class="small-text">The future is full of possibilities...</span></div>
-    <div class="slide">A HEART FULL OF GRATITUDE<br><span class="small-text">On this special day, take a moment to be grateful...</span></div>
-    <div class="slide">A DAY TO CELEBRATE YOU<br><span class="small-text">Birthdays are a time to be celebrated...</span></div>
-    <div class="slide">WISHING YOU ENDLESS HAPPINESS<br><span class="small-text">As you step into this new year of life...</span></div>
-    <div class="slide">HAPPY BIRTHDAY, SHALU!<br><span class="small-text">On this wonderful day, I want you to know how truly special you are...</span></div>
-    
-    <div class="navigation">
-        <button class="nav-btn" onclick="prevSlide()">Previous</button>
-        <button class="nav-btn" onclick="nextSlide()">Next</button>
+    <div class="slide-container">
+        <div class="slide active" style="background-image: url('image1.jpg');">
+            <h1>"Happy Birthday, Shalu!"</h1>
+            <p>"You bring light into my life every day."</p>
+            <div class="image-container">
+                <img src="pic1.jpg" alt="Pic 1">
+                <img src="pic2.jpg" alt="Pic 2">
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('image2.jpg');">
+            <h1>"May your day be filled with love and laughter, Shalu!"</h1>
+            <p>"You deserve all the happiness in the world."</p>
+            <div class="image-container">
+                <img src="pic3.jpg" alt="Pic 3">
+                <img src="pic4.jpg" alt="Pic 4">
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('image3.jpg');">
+            <h1>"Shalu, your smile makes everything brighter!"</h1>
+            <p>"You deserve all the happiness in the world."</p>
+            <div class="image-container">
+                <img src="pic5.jpg" alt="Pic 5">
+                <img src="pic6.jpg" alt="Pic 6">
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('image4.jpg');">
+            <h1>"Every moment with you is special, Shalu!"</h1>
+            <p>"I cherish every second we share together."</p>
+            <div class="image-container">
+                <img src="pic7.jpg" alt="Pic 7">
+                <img src="pic8.jpg" alt="Pic 8">
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('image5.jpg');">
+            <h1>"Wishing you a day filled with love and joy, Shalu!"</h1>
+            <p>"Because you make the world a better place."</p>
+            <div class="image-container">
+                <img src="pic9.jpg" alt="Pic 9">
+                <img src="pic10.jpg" alt="Pic 10">
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('image6.jpg');">
+            <h1>"Shalu, you are a gift to everyone who knows you!"</h1>
+            <p>"Keep shining like the star you are."</p>
+            <div class="image-container">
+                <img src="pic11.jpg" alt="Pic 11">
+                <img src="pic12.jpg" alt="Pic 12">
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('image7.jpg');">
+            <h1>"Shalu, may your dreams come true!"</h1>
+            <p>"Because you deserve the best."</p>
+          <div class="image-container">
+                <img src="pic11.jpg" alt="Pic 11">
+                <img src="pic12.jpg" alt="Pic 12">
+          </div>          
+        </div>
+        <div class="slide" style="background-image: url('image8.jpg');">
+            <h1>"Your kindness makes the world brighter, Shalu!"</h1>
+            <p>"Keep spreading love and joy."</p>
+          <div class="image-container">
+                <img src="pic13.jpg" alt="Pic 13">
+                <img src="pic14.jpg" alt="Pic 14">
+          </div>
+        </div>
+        <div class="slide" style="background-image: url('image9.jpg');">
+            <h1>"Shalu, today is all about you!"</h1>
+            <p>"Enjoy every moment to the fullest."</p>
+          <div class="image-container">
+                <img src="pic11.jpg" alt="Pic 11">
+                <img src="pic12.jpg" alt="Pic 12">
+          </div>
+        </div>
+        <div class="slide" style="background-image: url('image10.jpg');">
+            <h1>"You are truly one of a kind, Shalu!"</h1>
+            <p>"Always stay amazing as you are."</p>
+          <div class="image-container">
+                <img src="pic11.jpg" alt="Pic 11">
+                <img src="pic12.jpg" alt="Pic 12">
+          </div>
+        </div>
+        <div class="slide" style="background-image: url('image11.jpg');">
+            <h1>"Sending you endless hugs and love, Shalu!"</h1>
+            <p>"You mean the world to me."</p>
+          <div class="image-container">
+                <img src="pic11.jpg" alt="Pic 11">
+                <img src="pic12.jpg" alt="Pic 12">
+          </div>
+        </div>
+        <div class="slide" style="background-image: url('image12.jpg');">
+            <h1>"Happy Birthday once again, Shalu!"</h1>
+            <p>"May this year be your best one yet."</p>
+          <div class="image-container">
+                <img src="pic11.jpg" alt="Pic 11">
+                <img src="pic12.jpg" alt="Pic 12">
+          </div>
+        </div>
     </div>
-    
+ </div>
+    <div class="buttons">
+        <button class="button" onclick="prevSlide()">Previous</button>
+        <button class="button" id="nextBtn" onclick="nextSlide()">Next</button>
+    </div> 
     <script>
         let currentSlide = 0;
         const slides = document.querySelectorAll(".slide");
